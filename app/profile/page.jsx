@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import Profile from "@components/Profile";
+import Image from "next/image";
 
 const MyProfile = () => {
   const router = useRouter();
@@ -48,6 +49,7 @@ const MyProfile = () => {
   };
 
   return (
+  <>
     <Profile
       name='My'
       desc='Welcome to your personalized profile page. Share your exceptional prompts and inspire others with the power of your imagination'
@@ -55,6 +57,26 @@ const MyProfile = () => {
       handleEdit={handleEdit}
       handleDelete={handleDelete}
     />
+
+<div >
+
+<Image
+  src='/assets/images/light_bulb_two.svg'
+  alt='logo'
+  width={200}
+  height={200}
+  // className='absolute right-3.5 bottom-3.5'
+  className='absolute bottom-16 right-5 '
+  />
+{/* <Image
+  src='/assets/images/light_bulb_one.svg'
+  alt='logo'
+  width={150}
+  height={150}
+  className='absolute left-3.5'
+/> */}
+</div>
+  </>
   );
 };
 

@@ -1,14 +1,25 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
   return (
     <section className='w-full max-w-full flex-start flex-col'>
+      
+      <div className='absolute mix-blend-overlay right-3.5'>
+
+        <Image
+          src='/assets/images/right_hero.png'
+          alt='sectionHero'
+          width={500}
+          height={500}
+        />
+      </div>
+
       <h1 className='head_text text-left'>
-        <span className='blue_gradient'>{type} Post</span>
+        <span className='blue_gradient'>{type} un Post</span>
       </h1>
       <p className='desc text-left max-w-md'>
-        {type} and share amazing prompts with the world, and let your
-        imagination run wild with any AI-powered platform
+        {type} et partagez des idées incroyables avec le monde, et laissez vos idées faire le tour du monde
       </p>
 
       <form
@@ -17,13 +28,13 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
       >
         <label>
           <span className='font-satoshi font-semibold text-base text-gray-700'>
-            Your AI Prompt
+            Votre idée
           </span>
 
           <textarea
             value={post.prompt}
             onChange={(e) => setPost({ ...post, prompt: e.target.value })}
-            placeholder='Write your post here'
+            placeholder='Exprimez Vous...'
             required
             className='form_textarea '
           />
@@ -31,9 +42,9 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
 
         <label>
           <span className='font-satoshi font-semibold text-base text-gray-700'>
-            Field of Prompt{" "}
+            Votre hashtag{" "}
             <span className='font-normal'>
-              (#product, #webdevelopment, #idea, etc.)
+              (#production, #webdevelopment, #idée, etc.)
             </span>
           </span>
           <input
@@ -48,7 +59,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
 
         <div className='flex-end mx-3 mb-5 gap-4'>
           <Link href='/' className='text-gray-500 text-sm'>
-            Cancel
+            Annuler
           </Link>
 
           <button
@@ -60,6 +71,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
           </button>
         </div>
       </form>
+
     </section>
   );
 };
